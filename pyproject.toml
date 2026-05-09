@@ -1,0 +1,19 @@
+[project]
+name = "django-vite-tags"
+version = "0.1.0"
+description = "Template tags for using Vite"
+readme = "README.md"
+authors = [
+    { name = "lasse-cs", email = "lasse.schmieding@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    django>5.2,
+]
+
+[project.scripts]
+django-vite-tags = "django_vite_tags:main"
+
+[build-system]
+requires = ["uv_build>=0.11.8,<0.12.0"]
+build-backend = "uv_build"
