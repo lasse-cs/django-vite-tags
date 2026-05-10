@@ -4,9 +4,9 @@ version = "0.1.0"
 description = "Template tags for using Vite"
 readme = "README.md"
 authors = [
-    { name = "lasse-cs", email = "lasse.schmieding@gmail.com" }
+    { name = "lasse-cs" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 dependencies = [
     "django>=5.2,<6.1",
 ]
@@ -18,4 +18,23 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "ruff>=0.15.12",
+    {include-group = "tox"},
+]
+tox = [
+    "tox>=4.53.1",
+    "tox-uv-bare>=1.35.2",
+]
+django52 = [
+    "django>=5.2,<6.0; python_version>='3.10'",
+]
+django60 = [
+    "django>=6.0,<6.1; python_version>='3.12'",
+]
+
+[tool.uv]
+conflicts = [
+    [
+        { group = "django52" },
+        { group = "django60" },
+    ],
 ]
