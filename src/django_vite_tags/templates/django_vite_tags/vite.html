@@ -1,0 +1,13 @@
+{% load static %}
+
+{% for css_file in manifest.css_files %}
+    <link rel="stylesheet" href="{{ css_file }}">
+{% endfor %}
+
+{% for js_file in manifest.js_files %}
+    <script type="module" src="{{ js_file }}"></script>
+{% endfor %}
+
+{% for modulepreload in manifest.modulepreloads %}
+    <link rel="modulepreload" href="{{ modulepreload }}">
+{% endfor %}
