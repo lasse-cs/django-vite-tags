@@ -54,7 +54,7 @@ wheels = [
 
 [[package]]
 name = "django"
-version = "5.2.14"
+version = "5.2.16"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version < '3.12' and extra != 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60'",
@@ -66,14 +66,14 @@ dependencies = [
     { name = "sqlparse", marker = "python_full_version < '3.12' or extra == 'group-16-django-vite-tags-django52'" },
     { name = "tzdata", marker = "(python_full_version < '3.12' and sys_platform == 'win32') or (sys_platform == 'win32' and extra == 'group-16-django-vite-tags-django52') or (sys_platform != 'win32' and extra == 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60')" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/65/95/95f7faa0950867afaa0bef2460c6263afd6a2c78cc9434046ed28160b015/django-5.2.14.tar.gz", hash = "sha256:58a63ba841662e5c686b57ba1fec52ddd68c0b93bd96ac3029d55728f00bf8a2", size = 10895118, upload-time = "2026-05-05T13:57:31.104Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a9/26/889449d521ae508b26de715954faecd8bcf3f740affb81b2d146a83b42a5/django-5.2.16.tar.gz", hash = "sha256:59ea02020c3136fce14bef0bbece21a10a4febef5eed1c51c22ae468efa22200", size = 10890894, upload-time = "2026-07-07T13:52:17.005Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/14/44/f172870cf87aa25afef48fb72adba89ee8b77fcab6f3b23d240b923f1528/django-5.2.14-py3-none-any.whl", hash = "sha256:6f712143bd3064310d1f50fac859c3e9a274bdcfc9595339853be7779297fc76", size = 8311320, upload-time = "2026-05-05T13:57:25.795Z" },
+    { url = "https://files.pythonhosted.org/packages/4e/13/1e5e3e4c15dcecb04281b3cb2a46a4670e1cef131068e202f6040df19224/django-5.2.16-py3-none-any.whl", hash = "sha256:04f354bf9d807a86ad1a8392fe3808d362358a8eafc322848e0e43e59b24371d", size = 8311943, upload-time = "2026-07-07T13:52:11.223Z" },
 ]
 
 [[package]]
 name = "django"
-version = "6.0.5"
+version = "6.0.7"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.12'",
@@ -83,9 +83,9 @@ dependencies = [
     { name = "sqlparse", marker = "(python_full_version >= '3.12' and extra != 'group-16-django-vite-tags-django52') or (extra == 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60')" },
     { name = "tzdata", marker = "(python_full_version >= '3.12' and sys_platform == 'win32' and extra != 'group-16-django-vite-tags-django52') or (extra == 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60')" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5e/f1/bf85f0d29ef76abf901f193fe8fef4769d3da7794197832bc30151c071d8/django-6.0.5.tar.gz", hash = "sha256:bc6d6872e98a2864c836e42edd644b362db311147dd5aa8d5b82ba7a032f5269", size = 10924131, upload-time = "2026-05-05T13:54:39.329Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/89/55/664f24ff81c9ea19cb7dfc851afeae1f3c2390c7aee01d4ded68b5c1580d/django-6.0.7.tar.gz", hash = "sha256:2998503fc083124fb58037084bfa00de323c7c743f05f1b4284e77bff0ab8890", size = 10921299, upload-time = "2026-07-07T13:51:26.485Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/94/5b/1328f8b84fce040c404f76822bf8c57d254e368e8cbd8bd67ec2b26d75f5/django-6.0.5-py3-none-any.whl", hash = "sha256:9d58a7cb49244e74c8e161d5e403a46d6209f1009ba40f5a66d6aa0d0786a8f0", size = 8368680, upload-time = "2026-05-05T13:54:33.532Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/ec/1ce5334b6a2c52ce619c23a0be8d366a57a0e080ebb2d88266e5c849157c/django-6.0.7-py3-none-any.whl", hash = "sha256:a037427c2288443a8c02a1b02295a31c239663aa682bc50b1976afb7cf6a769e", size = 8373344, upload-time = "2026-07-07T13:51:20.007Z" },
 ]
 
 [[package]]
@@ -93,8 +93,8 @@ name = "django-vite-tags"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "django", version = "5.2.14", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-16-django-vite-tags-django52'" },
-    { name = "django", version = "6.0.5", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra != 'group-16-django-vite-tags-django52') or (extra == 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60')" },
+    { name = "django", version = "5.2.16", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-16-django-vite-tags-django52'" },
+    { name = "django", version = "6.0.7", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra != 'group-16-django-vite-tags-django52') or (extra == 'group-16-django-vite-tags-django52' and extra == 'group-16-django-vite-tags-django60')" },
 ]
 
 [package.dev-dependencies]
@@ -104,10 +104,10 @@ dev = [
     { name = "tox-uv-bare" },
 ]
 django52 = [
-    { name = "django", version = "5.2.14", source = { registry = "https://pypi.org/simple" } },
+    { name = "django", version = "5.2.16", source = { registry = "https://pypi.org/simple" } },
 ]
 django60 = [
-    { name = "django", version = "6.0.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "django", version = "6.0.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
 ]
 tox = [
     { name = "tox" },
