@@ -4,7 +4,6 @@ import os
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
-
 _manifest_cache: tuple[int, dict] | None = None
 
 

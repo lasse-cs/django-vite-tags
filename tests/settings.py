@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 INSTALLED_APPS = [
     "django_vite_tags",
 ]

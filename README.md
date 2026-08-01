@@ -27,5 +27,5 @@ For production, specify the `DJANGO_VITE_MANIFEST_PATH` with the path that Djang
 ```python
 from pathlib import Path
 
-DJANGO_VITE_MANIFEST_PATH=BASE_DIR / "static_out" / ".vite" / "manifest.json"
+DJANGO_VITE_MANIFEST_PATH = BASE_DIR / "static_out" / ".vite" / "manifest.json"
 ```
