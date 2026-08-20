@@ -17,7 +17,7 @@ To use include `django_vite_tags` in `INSTALLED_APPS`. Then add the `{% vite %}`
 For development, specify the `DJANGO_VITE_SERVER_URL` setting to point to the vite development server
 
 ```python
-DJANGO_VITE_SERVER_URL="http://localhost:5173"
+DJANGO_VITE_SERVER_URL = "http://localhost:5173"
 ```
 
 This will add the tags for the asset and to enable hot module reloading.
