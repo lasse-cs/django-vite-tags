@@ -111,7 +111,7 @@ wheels = [
 
 [[package]]
 name = "django-vite-tags"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.16", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-16-django-vite-tags-django52' or (extra == 'group-16-django-vite-tags-django60' and extra == 'group-16-django-vite-tags-django61')" },
