@@ -23,7 +23,6 @@ class DjangoViteManifestContext:
 
 @dataclass
 class DjangoViteManifestWalkState:
-    entries: set[str] = field(default_factory=set)
     css_files: set[str] = field(default_factory=set)
     js_files: set[str] = field(default_factory=set)
     modulepreloads: set[str] = field(default_factory=set)
@@ -37,39 +36,61 @@ def append_static_file(target_list, seen_set, file_path):
     target_list.append(static(file_path))
 
 
-def walk_manifest(manifest, entry_point, context=None, state=None):
-    if context is None:
-        context = DjangoViteManifestContext()
-    if state is None:
-        state = DjangoViteManifestWalkState()
+def collect_imports(manifest, entry_point):
+    imported_entries = []
+    seen = {entry_point}
 
-    if entry_point in state.entries:
-        return context
+    def visit(entry):
+        for imported_file in entry.get("imports", []):
+            if imported_file in seen:
+                continue
+            if imported_file not in manifest:
+                raise DjangoViteManifestError(
+                    f'Entrypoint "{imported_file}" is not found in the Vite manifest.'
+                )
 
+            seen.add(imported_file)
+            imported_entry = manifest[imported_file]
+            visit(imported_entry)
+            imported_entries.append(imported_entry)
+
+    visit(manifest[entry_point])
+    return imported_entries
+
+
+def walk_manifest(manifest, entry_point):
     if entry_point not in manifest:
         raise DjangoViteManifestError(
             f'Entrypoint "{entry_point}" is not found in the Vite manifest.'
         )
+
+    context = DjangoViteManifestContext()
+    state = DjangoViteManifestWalkState()
     entry = manifest[entry_point]
-    referenced_file = entry["file"]
-    is_entry = entry.get("isEntry", False)
-    state.entries.add(entry_point)
+    imported_entries = collect_imports(manifest, entry_point)
+
     for css_file in entry.get("css", []):
         append_static_file(context.css_files, state.css_files, css_file)
-    if is_entry:
-        if referenced_file.endswith(".css"):
-            append_static_file(context.css_files, state.css_files, referenced_file)
-        elif referenced_file.endswith(".js"):
-            append_static_file(context.js_files, state.js_files, referenced_file)
-    elif referenced_file.endswith(".js"):
-        append_static_file(
-            context.modulepreloads,
-            state.modulepreloads,
-            referenced_file,
-        )
 
-    for imported_file in entry.get("imports", []):
-        walk_manifest(manifest, imported_file, context, state)
+    for imported_entry in imported_entries:
+        for css_file in imported_entry.get("css", []):
+            append_static_file(context.css_files, state.css_files, css_file)
+
+    referenced_file = entry["file"]
+    if referenced_file.endswith(".css"):
+        append_static_file(context.css_files, state.css_files, referenced_file)
+    elif referenced_file.endswith(".js"):
+        append_static_file(context.js_files, state.js_files, referenced_file)
+
+    for imported_entry in imported_entries:
+        referenced_file = imported_entry["file"]
+        if referenced_file.endswith(".js"):
+            append_static_file(
+                context.modulepreloads,
+                state.modulepreloads,
+                referenced_file,
+            )
+
     return context
 
 
