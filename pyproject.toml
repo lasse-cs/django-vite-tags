@@ -8,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "django>=5.2,<6.1",
+    "django>=5.2,<6.2",
 ]
 
 [build-system]
@@ -30,11 +30,15 @@ django52 = [
 django60 = [
     "django>=6.0,<6.1; python_version>='3.12'",
 ]
+django61 = [
+    "django>=6.1,<6.2; python_version>='3.12'",
+]
 
 [tool.uv]
 conflicts = [
     [
         { group = "django52" },
         { group = "django60" },
+        { group = "django61" },
     ],
 ]
