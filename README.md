@@ -6,7 +6,7 @@ For a more comprehensive integration for Django, see for example [django-vite](h
 
 ## Usage
 
-To use add the `{% vite %}` template tag with the entry point to include
+To use include `django_vite_tags` in `INSTALLED_APPS`. Then add the `{% vite %}` template tag with the entry point to include
 
 ```django+html
 {% load vite_tags %}
@@ -17,7 +17,7 @@ To use add the `{% vite %}` template tag with the entry point to include
 For development, specify the `DJANGO_VITE_SERVER_URL` setting to point to the vite development server
 
 ```python
-DJANGO_VITE_SERVER_URL=http://localhost:5173
+DJANGO_VITE_SERVER_URL="http://localhost:5173"
 ```
 
 This will add the tags for the asset and to enable hot module reloading.
